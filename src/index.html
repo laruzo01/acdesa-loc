@@ -19,6 +19,36 @@
   </head>
   <body>
   <div class="container">
+    <label class="hidden-xs hidden-sm">Empresa</label>
+    <select ng-model="selectedEmpresa">
+    <option ng-repeat="empresa in empresas" value="{{empresa.IdEmpresa}}">{{empresa.name}}</option>
+    </select>
+
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Empresa
+        <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li ng-repeat="empresa in empresas" >
+           <a href="#">{{empresa.name}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-6 col-sm-11">
+      <div class="form-group typecustomer">
+        <label for="customer" class="hidden-xs hidden-sm">Cliente</label>
+        <input type="text" id="customer" ng-model="customerSelected" placeholder="Cliente"
+         typeahead="customer as customer.label for customer in getCustomers($viewValue,'1')"
+         typeahead-wait-ms="300" typeahead-min-length="2" typeahead-loading="loadingCustomers"
+         class="form-control" autocomplete="off">
+        <i ng-show="loadingCustomers" class="fa fa-circle-o-notch fa-spin"></i>
+      </div>
+
+
 
   </div>
   </body>
